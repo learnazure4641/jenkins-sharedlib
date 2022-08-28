@@ -8,8 +8,8 @@ def call(String repoUrl) {
        stages {
            stage("Tools initialization") {
                steps {
-                   sh "mvn --version"
-                   sh "java -version"
+                  bat "mvn --version"
+                   bat "java -version"
                }
            }
            stage("Checkout Code") {
@@ -20,17 +20,17 @@ def call(String repoUrl) {
            }
            stage("Cleaning workspace") {
                steps {
-                   sh "mvn clean"
+                   bat "mvn clean"
                }
            }
            stage("Running Testcase") {
               steps {
-                   sh "mvn test"
+                   bat "mvn test"
                }
            }
            stage("Packing Application") {
                steps {
-                   sh "mvn package -DskipTests"
+                   bat "mvn package -DskipTests"
                }
            }
        }
